@@ -77,15 +77,15 @@ XmlElement.prototype = {
 		var attrs = this.attributes;
 		var attributes = Object.keys(attrs)
 			.map(function(name) {
-				var value = attrs[name].toString();
-				return name + '="' + encode(value) + '"';
+				return name + '="' + encode(attrs[name]) + '"';
 			})
 			.join(' ');
 
-		var tag = '<' + this.tagName + (attributes.length ? ' ' + attributes : ''),
-			joiner = (options.pretty ? '\n' : '') + getIndent(options);
+		var joiner = (options.pretty ? '\n' : '') + getIndent(options);
+		var tag = getIndent(options) + '<' + this.tagName + (attributes.length ? ' ' + attributes : '');
+
 		if (this.children.length) {
-			tag += '>';
+			tag += '>' + (options.pretty ? '\n': '');
 			tag += this.children
 				.map(function(child) {
 					return child.getMarkup({
@@ -94,16 +94,12 @@ XmlElement.prototype = {
 						depth: options.depth + 1
 					});
 				})
-				.join(joiner);
+				.join('\n');
 
 			tag += joiner + '</' + this.tagName + '>';
 		} else {
 			//no children, self-close it
 			tag += '/>';
-		}
-
-		if (options.pretty) {
-			tag += '\n';
 		}
 
 		return tag;
@@ -129,11 +125,3 @@ function getIndent(options) {
 }
 
 module.exports = XmlBuilder;
-
-/*
-var xml = new XmlBuilder();
-var root = xml.create('svg', { version: '1.1' });
-root.append(xml.create('text', { 'text-anchor': 'middle' }).append(xml.text('Hello World')));
-var markup = root.toString();
-
- */
