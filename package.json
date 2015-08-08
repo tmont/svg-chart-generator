@@ -1,0 +1,15 @@
+{
+	"name": "svg-chart-generator",
+	"description": "Generates simple SVG charts on the server",
+	"keywords": [ "chart", "graph", "svg" ],
+	"version": "0.0.1",
+	"scripts": {
+		"start": "node_modules/.bin/serve -p 12345 ."
+	},
+	"dependencies": {
+		"extend": "3.0.0"
+	},
+	"devDependencies": {
+		"serve": "*"
+	}
+}
