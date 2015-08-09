@@ -59,9 +59,15 @@ ChartBuilder.prototype = {
 		var context = {
 			params: params,
 			dimensions: d,
-			xDomain: getOptimalDomain(pluck(params.data, 0), params.width),
-			yDomain: getOptimalDomain(pluck(params.data, 1), params.height)
+			xDomain: getOptimalDomain(pluck(params.data, 0), params.width, params.xAxis.fit),
+			yDomain: getOptimalDomain(pluck(params.data, 1), params.height, params.yAxis.fit)
 		};
+
+		d.chartWidth = context.xDomain.adjustedLength;
+		d.chartHeight = context.yDomain.adjustedLength;
+
+		console.log(require('util').inspect(context.xDomain, false, null, true));
+		console.log(require('util').inspect(context.yDomain, false, null, true));
 
 		context.dimensions.chartOrigin = {
 			x: d.margin + d.yAxisLabelWidth + d.yAxisGutter,

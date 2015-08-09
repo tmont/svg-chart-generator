@@ -20,13 +20,14 @@ module.exports = function(context) {
 	});
 
 	var coord,
+		stepValue,
 		i;
 
 	//x-axis
-	for (i = xDomain.min; i <= xDomain.max; i += xDomain.step) {
-		i = roundProperly(i, xDomain.exp, 10);
+	for (i = 0; i < xDomain.stepValues.length; i++) {
+		stepValue = xDomain.stepValues[i];
 		coord = {
-			x: d.chartOrigin.x + ((i - xDomain.min) * xDomain.stepLength),
+			x: d.chartOrigin.x + ((stepValue - xDomain.min) * xDomain.pixelsPerUnit),
 			y: d.chartOrigin.y + (d.xAxisGutter * 3 / 4)
 		};
 
@@ -34,24 +35,24 @@ module.exports = function(context) {
 			x: coord.x,
 			y: coord.y,
 			'text-anchor': 'middle'
-		}).append(i));
+		}).append(stepValue));
 
-		if (i > xDomain.min && context.params.xAxis.grid) {
+		if (stepValue > xDomain.min && context.params.xAxis.grid) {
 			g.append(xml.create('line', extend({
-				x1: d.chartOrigin.x + ((i - xDomain.min) * xDomain.stepLength),
+				x1: coord.x,
 				y1: d.margin + d.titleHeight + d.chartHeight,
-				x2: d.chartOrigin.x + ((i - xDomain.min) * xDomain.stepLength),
+				x2: coord.x,
 				y2: d.margin + d.titleHeight
 			}, gridDefaults)));
 		}
 	}
 
 	//y-axis
-	for (i = yDomain.min; i <= yDomain.max; i += yDomain.step) {
-		i = roundProperly(i, yDomain.exp, 10);
+	for (i = 0; i < yDomain.stepValues.length; i++) {
+		stepValue = yDomain.stepValues[i];
 		coord = {
 			x: d.margin + d.yAxisLabelWidth + (d.yAxisGutter / 2),
-			y: d.chartOrigin.y - ((i - yDomain.min) * yDomain.stepLength)
+			y: d.chartOrigin.y - ((stepValue - yDomain.min) * yDomain.pixelsPerUnit)
 		};
 
 		g.append(xml.create('text', {
@@ -59,14 +60,14 @@ module.exports = function(context) {
 			y: coord.y,
 			'text-anchor': 'middle',
 			dy: '.3em'
-		}).append(i));
+		}).append(stepValue));
 
 		if (i > yDomain.min && context.params.yAxis.grid) {
 			g.append(xml.create('line', extend({
 				x1: d.chartOrigin.x,
-				y1: d.chartOrigin.y - ((i - yDomain.min) * yDomain.stepLength),
+				y1: d.chartOrigin.y - ((stepValue - yDomain.min) * yDomain.pixelsPerUnit),
 				x2: d.chartOrigin.x + d.chartWidth,
-				y2: d.chartOrigin.y - ((i - yDomain.min) * yDomain.stepLength)
+				y2: d.chartOrigin.y - ((stepValue - yDomain.min) * yDomain.pixelsPerUnit)
 			}, gridDefaults)));
 		}
 	}

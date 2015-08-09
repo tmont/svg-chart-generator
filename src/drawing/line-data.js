@@ -12,8 +12,8 @@ module.exports = function(context) {
 		var x = point[0],
 			y = point[1];
 
-		x = d.chartOrigin.x + d.chartWidth * ((x - xDomain.min) / xDomain.numSteps) / xDomain.step;
-		y = d.chartOrigin.y - d.chartHeight * ((y - yDomain.min) / yDomain.numSteps) / yDomain.step;
+		x = d.chartOrigin.x + xDomain.originalLength * ((x - xDomain.min) / xDomain.numSteps) / xDomain.step;
+		y = d.chartOrigin.y - yDomain.originalLength * ((y - yDomain.min) / yDomain.numSteps) / yDomain.step;
 
 		return [ x, y ];
 	}
