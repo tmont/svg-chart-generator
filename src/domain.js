@@ -20,18 +20,23 @@ function getOptimalDomain(values, length, fit) {
 
 	var realMax = max;
 	var realMin = min;
-	var moddedMax = max + (step - oneTrueMod(max, step));
+
+	var modMax = oneTrueMod(max, step);
+	var modMin = oneTrueMod(min, step);
+
+	var absoluteMax = max + (modMax ? (step - modMax) : 0);
+	var absoluteMin = min - modMin;
+
 	var stepValues = [ ];
-	var moddedMin = min - oneTrueMod(min, step);
 	if (fit === 'best') {
-		realMin = moddedMin;
-		realMax = roundProperly(moddedMax, base);
+		realMin = absoluteMin;
+		realMax = roundProperly(absoluteMax, base);
 	}
 	var realNumSteps = Math.ceil((realMax - realMin) / step);
 
 	stepValues.push(realMin);
 	for (var i = 1; i < realNumSteps; i++) {
-		stepValues.push(roundProperly(moddedMin + (step * i), base));
+		stepValues.push(roundProperly(absoluteMin + (step * i), base));
 	}
 	stepValues.push(realMax);
 
@@ -39,8 +44,21 @@ function getOptimalDomain(values, length, fit) {
 
 	return {
 		fit: fit,
-		moddedMin: moddedMin,
-		moddedMax: moddedMax,
+		moddedMin: absoluteMin,
+		moddedMax: absoluteMax,
+		mins: {
+			min: min,
+			mod: modMin,
+			realMin: realMin,
+			moddedMin: absoluteMin,
+			roundedModMin: roundProperly(modMin, base)
+		},
+		maxes: {
+			max: max,
+			realMax: realMax,
+			absoluteMax: absoluteMax,
+			modOfMax: roundProperly(modMax, base)
+		},
 		min: realMin,
 		max: realMax,
 		step: step,
