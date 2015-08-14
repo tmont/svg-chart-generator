@@ -2,20 +2,24 @@ var oneTrueMod = require('./modulus'),
 	roundProperly = require('./round');
 
 function getOptimalDomain(values, length, fit) {
-	var max = values.reduce(function(max, next) {
-		return Math.max(max, next);
-	}, -Infinity);
-	var min = values.reduce(function(min, next) {
-		return Math.min(min, next);
-	}, Infinity);
+    var i;
+    var max = -Infinity, min = Infinity;
+    for (i = 0; i < values.length; i++) {
+        max = Math.max(values[i], max);
+        min = Math.min(values[i], min);
+    }
 
 	var base = 10;
 	var diff = max - min;
+    //TODO this 2.5 should be some function of the length
+    //i.e. the amount of space allotted for the step text
 	var optimalNumSteps = Math.ceil(Math.sqrt(length) / 2.5);
+
 	var exactStep = diff / optimalNumSteps;
 	var exponent = Math.round(Math.log(exactStep) / Math.log(base));
 	var step = Math.pow(base, exponent);
 	var numSteps = diff / step;
+	var originalStep = step;
 	step = step * Math.round(numSteps / optimalNumSteps);
 
 	var realMax = max;
@@ -35,7 +39,7 @@ function getOptimalDomain(values, length, fit) {
 	var realNumSteps = Math.ceil((realMax - realMin) / step);
 
 	stepValues.push(realMin);
-	for (var i = 1; i < realNumSteps; i++) {
+	for (i = 1; i < realNumSteps; i++) {
 		stepValues.push(roundProperly(absoluteMin + (step * i), base));
 	}
 	stepValues.push(realMax);
@@ -44,21 +48,20 @@ function getOptimalDomain(values, length, fit) {
 
 	return {
 		fit: fit,
-		moddedMin: absoluteMin,
-		moddedMax: absoluteMax,
-		mins: {
-			min: min,
-			mod: modMin,
-			realMin: realMin,
-			moddedMin: absoluteMin,
-			roundedModMin: roundProperly(modMin, base)
-		},
-		maxes: {
-			max: max,
-			realMax: realMax,
-			absoluteMax: absoluteMax,
-			modOfMax: roundProperly(modMax, base)
-		},
+        diff: diff,
+        _: {
+            max: max,
+            min: min,
+            realMax: realMax,
+            realMin: realMin,
+            absoluteMin: absoluteMin,
+            modMin: modMin,
+            modMax: modMax,
+            exactStep: exactStep,
+            optimalNumSteps: optimalNumSteps,
+	        numSteps: numSteps,
+	        originalStep: originalStep
+        },
 		min: realMin,
 		max: realMax,
 		step: step,
