@@ -5,5 +5,5 @@ module.exports = function(value, exp, base) {
 		divider = base;
 	}
 
-	return Math.round(value * divider) / divider;
+	return Math.round(value * (divider * base) / base) / divider;
 };
