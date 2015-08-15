@@ -14,63 +14,112 @@ function getOptimalDomain(values, length, fit) {
     //TODO this 2.5 should be some function of the length
     //i.e. the amount of space allotted for the step text
 	var optimalNumSteps = Math.ceil(Math.sqrt(length) / 2.5);
-
 	var exactStep = diff / optimalNumSteps;
-	var exponent = Math.round(Math.log(exactStep) / Math.log(base));
-	var step = Math.pow(base, exponent);
-	var numSteps = diff / step;
-	var originalStep = step;
-	step = step * Math.round(numSteps / optimalNumSteps);
 
-	var realMax = max;
-	var realMin = min;
+	function calculate(base, useMod) {
+		var exponent = Math.round(Math.log(exactStep) / Math.log(base));
+		var step = Math.pow(base, exponent);
+		var defaultNumSteps = diff / step;
+		var diffFromOptimal = Math.round(defaultNumSteps / optimalNumSteps);
+		if (!diffFromOptimal) {
+			return false;
+		}
+		//if ((diffFromOptimal - optimalNumSteps) > Math.sqrt(optimalNumSteps)) {
+			step *= diffFromOptimal;
+		//} else {
+		//	step *= optimalNumSteps;
+		//}
 
-	var modMax = oneTrueMod(max, step);
-	var modMin = oneTrueMod(min, step);
+		//only adjust number of steps if it's more than the square root away
+		//the idea is that we don't want to adjust the number of steps away from
+		//the default unless it makes a big difference (e.g. having 10 steps instead of 100)
 
-	var absoluteMax = max + (modMax ? (step - modMax) : 0);
-	var absoluteMin = min - modMin;
+		//console.log(step, defaultNumSteps, optimalNumSteps, diffFromOptimal);
+		if (!step) {
+			//TODO this is almost certainly a bad idea...
+			return false;
+		}
 
-	var stepValues = [ ];
-	if (fit === 'best') {
-		realMin = absoluteMin;
-		realMax = roundProperly(absoluteMax, base);
+		var realMax = max;
+		var realMin = min;
+
+		var modMax = oneTrueMod(max, step);
+		var modMin = oneTrueMod(min, step);
+
+		var absoluteMax = max;
+		var absoluteMin = min;
+		if (useMod) {
+			absoluteMax = max + (modMax ? (step - modMax) : 0);
+			absoluteMin = min - modMin;
+		}
+		return {
+			exponent: exponent,
+			absoluteMax: absoluteMax,
+			absoluteMin: absoluteMin,
+			realMax: realMax,
+			realMin: realMin,
+			modMox: modMax,
+			modMin: modMin,
+			step: step,
+			numSteps: defaultNumSteps
+		};
 	}
-	var realNumSteps = Math.ceil((realMax - realMin) / step);
 
-	stepValues.push(realMin);
+	function dateStuff() {
+		var oneSecond = 1000,
+			oneMinute = oneSecond * 60,
+			oneHour = oneMinute * 60,
+			oneDay = oneHour * 24;
+
+		var bases = [
+			oneDay,
+			oneHour,
+			oneMinute,
+			oneSecond
+		];
+
+		do {
+			var result = calculate(bases.shift());
+			if (result && bases.length && bases[0] > result.step) {
+				result = false;
+			}
+		} while (!result && bases.length);
+		return result;
+	}
+
+	var result,
+		stepValues = [];
+	if (fit === 'date') {
+		result = dateStuff();
+	} else {
+		result = calculate(10, true);
+		if (fit === 'best') {
+			result.realMin = result.absoluteMin;
+			result.realMax = roundProperly(result.absoluteMax, base);
+		}
+	}
+
+	var realNumSteps = Math.ceil((result.realMax - result.realMin) / result.step);
+
+	stepValues.push(result.realMin);
 	for (i = 1; i < realNumSteps; i++) {
-		stepValues.push(roundProperly(absoluteMin + (step * i), base));
+		stepValues.push(roundProperly(result.absoluteMin + (result.step * i), base));
 	}
-	stepValues.push(realMax);
+	stepValues.push(result.realMax);
 
-	var pixelsPerUnit = length / realNumSteps / step;
-
+	var pixelsPerUnit = length / realNumSteps / result.step;
 	return {
 		fit: fit,
-        diff: diff,
-        _: {
-            max: max,
-            min: min,
-            realMax: realMax,
-            realMin: realMin,
-            absoluteMin: absoluteMin,
-            modMin: modMin,
-            modMax: modMax,
-            exactStep: exactStep,
-            optimalNumSteps: optimalNumSteps,
-	        numSteps: numSteps,
-	        originalStep: originalStep
-        },
-		min: realMin,
-		max: realMax,
-		step: step,
+		diff: diff,
+		min: result.realMin,
+		max: result.realMax,
+		step: result.step,
 		numSteps: realNumSteps,
 		pixelsPerUnit: pixelsPerUnit,
-		exp: exponent,
+		exp: result.exponent,
 		stepValues: stepValues,
 		originalLength: length,
-		adjustedLength: (realMax - realMin) * pixelsPerUnit
+		adjustedLength: (result.realMax - result.realMin) * pixelsPerUnit
 	};
 }
 
