@@ -59,13 +59,13 @@ var options = {
 	yAxis: {
 		color: 'black',
 		label: 'Count',
-		fit: 'best',
+		algorithm: 'best',
 		grid: true
 	},
 	xAxis: {
 		color: 'black',
 		label: 'Date',
-		fit: 'exact',
+		algorithm: 'fit-extrema',
 		grid: true
 	},
 	style: {

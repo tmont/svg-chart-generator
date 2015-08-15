@@ -59,8 +59,8 @@ ChartBuilder.prototype = {
 		var context = {
 			params: params,
 			dimensions: d,
-			xDomain: getOptimalDomain(pluck(params.data, 0), params.width, params.xAxis.fit),
-			yDomain: getOptimalDomain(pluck(params.data, 1), params.height, params.yAxis.fit)
+			xDomain: getOptimalDomain(pluck(params.data, 0), params.width, params.xAxis.algorithm),
+			yDomain: getOptimalDomain(pluck(params.data, 1), params.height, params.yAxis.algorithm)
 		};
 
 		d.chartWidth = context.xDomain.adjustedLength;

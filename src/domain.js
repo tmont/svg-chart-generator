@@ -1,7 +1,8 @@
 var oneTrueMod = require('./modulus'),
 	roundProperly = require('./round');
 
-function getOptimalDomain(values, length, fit) {
+function getOptimalDomain(values, length, algorithm) {
+	algorithm = algorithm || 'best';
     var i;
     var max = -Infinity, min = Infinity;
     for (i = 0; i < values.length; i++) {
@@ -89,11 +90,11 @@ function getOptimalDomain(values, length, fit) {
 
 	var result,
 		stepValues = [];
-	if (fit === 'date') {
+	if (algorithm === 'date') {
 		result = dateStuff();
 	} else {
 		result = calculate(10, true);
-		if (fit === 'best') {
+		if (algorithm === 'best') {
 			result.realMin = result.absoluteMin;
 			result.realMax = roundProperly(result.absoluteMax, base);
 		}
@@ -109,7 +110,7 @@ function getOptimalDomain(values, length, fit) {
 
 	var pixelsPerUnit = length / realNumSteps / result.step;
 	return {
-		fit: fit,
+		algorithm: algorithm,
 		diff: diff,
 		min: result.realMin,
 		max: result.realMax,

@@ -39,9 +39,9 @@ describe('Domain', function() {
 		domain.should.have.property('stepValues', [ 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2 ]);
 	});
 
-	it('should get exact fit', function() {
+	it('should get extrema fit', function() {
 		var values = [ 1000, 5000, 10000, 25000, 59900, 97363 ];
-		var domain = getDomain(values, length, 'exact');
+		var domain = getDomain(values, length, 'fit-extrema');
 		domain.should.have.property(
 			'stepValues',
 			[ 1000, 10000, 20000, 30000, 40000, 50000, 60000, 70000, 80000, 90000, 97363 ]
