@@ -65,7 +65,7 @@ var options = {
 	xAxis: {
 		color: 'black',
 		label: 'Date',
-		algorithm: 'fit-extrema',
+		algorithm: 'date',
 		grid: true
 	},
 	style: {
@@ -74,29 +74,28 @@ var options = {
 	legend: true
 };
 
-//console.log(require('util').inspect(options.data, false, null, true));
+var xValues = [];
+var date = new Date();
+for (var i = 0; i < 8; i++) {
+	xValues.push(date.getTime());
+	date.setHours(date.getHours() + 1);
+}
 
 options.data = [{
 	color: 'blue',
 	label: 'Windows',
 	area: true,
-	values: [[1000, 0.4],
-		[5000, -0],
-		[10000, -0.9],
-		[25000, 0.4],
-		[59900, -0.4],
-		[97363, 1]]
+	values: xValues.map(function(x) {
+		return [ x, Math.round(Math.random() * 10) ];
+	})
 },
 	{
 		color: 'magenta',
 		label: 'Ubuntu',
 		area: true,
-		values: [[1000, -0.3],
-			[5000, 0.4],
-			[10000, -0.7],
-			[25000, -0.2],
-			[59900, -0.1],
-			[97363, 0.6]]
+		values: xValues.map(function(x) {
+			return [ x, Math.round(Math.random() * 10) ];
+		})
 	}];
 
 var svgData = new ChartBuilder().build(options);

@@ -1,5 +1,4 @@
-var extend = require('extend'),
-	roundProperly = require('../round');
+var extend = require('extend');
 
 module.exports = function(context) {
 	var xml = context.svg.builder,
@@ -34,8 +33,9 @@ module.exports = function(context) {
 		g.append(xml.create('text', {
 			x: coord.x,
 			y: coord.y,
-			'text-anchor': 'middle'
-		}).append(stepValue));
+			'text-anchor': 'end',
+			transform: 'rotate(' + (d.axisLabelAngle || 0) + ', ' + coord.x + ',' + coord.y + ')'
+		}).append(xDomain.labels[i]));
 
 		if (stepValue > xDomain.min && context.params.xAxis.grid) {
 			g.append(xml.create('line', extend({

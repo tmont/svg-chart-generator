@@ -3,6 +3,10 @@ var oneTrueMod = require('./modulus'),
 
 function getOptimalDomain(values, length, algorithm) {
 	algorithm = algorithm || 'best';
+	var oneSecond = 1000,
+		oneMinute = oneSecond * 60,
+		oneHour = oneMinute * 60,
+		oneDay = oneHour * 24;
     var i;
     var max = -Infinity, min = Infinity;
     for (i = 0; i < values.length; i++) {
@@ -67,10 +71,6 @@ function getOptimalDomain(values, length, algorithm) {
 	}
 
 	function dateStuff() {
-		var oneSecond = 1000,
-			oneMinute = oneSecond * 60,
-			oneHour = oneMinute * 60,
-			oneDay = oneHour * 24;
 
 		var bases = [
 			oneDay,
@@ -109,6 +109,45 @@ function getOptimalDomain(values, length, algorithm) {
 	stepValues.push(result.realMax);
 
 	var pixelsPerUnit = length / realNumSteps / result.step;
+
+	var maxLabelWidth = 0,
+		labels = stepValues.map(function(value) {
+			function format(timestamp) {
+				var date = new Date(timestamp);
+
+				function pad(value) {
+					return value < 10 ? '0' + value : value;
+				}
+
+				var dateStr = [
+					date.getFullYear(),
+					pad(date.getMonth() + 1),
+					pad(date.getDate())
+				].join('-');
+
+				var time = [pad(date.getHours()), pad(date.getMinutes()), pad(date.getSeconds())].join(':');
+
+				if (diff < oneDay) {
+					return time;
+				}
+				if (result.step >= oneDay) {
+					return dateStr;
+				}
+
+				return dateStr + ' ' + time;
+			}
+
+			return algorithm === 'date' ? format(value) : value.toString();
+		});
+
+	if (algorithm === 'date') {
+		maxLabelWidth = 150;
+	} else {
+		maxLabelWidth = labels.reduce(function(max, next) {
+			return Math.max(max, next.length);
+		}, 0);
+	}
+
 	return {
 		algorithm: algorithm,
 		diff: diff,
@@ -120,7 +159,9 @@ function getOptimalDomain(values, length, algorithm) {
 		exp: result.exponent,
 		stepValues: stepValues,
 		originalLength: length,
-		adjustedLength: (result.realMax - result.realMin) * pixelsPerUnit
+		adjustedLength: (result.realMax - result.realMin) * pixelsPerUnit,
+		maxStepLabelWidth: maxLabelWidth,
+		labels: labels
 	};
 }
 

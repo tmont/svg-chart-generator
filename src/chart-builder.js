@@ -16,7 +16,7 @@ var defaultOptions = {
 		grid: true
 	},
 	style: {
-		fontFamily: 'sans-serif'
+		fontFamily: 'monospace'
 	}
 };
 
@@ -35,6 +35,22 @@ ChartBuilder.prototype = {
 			throw new Error('data must be an array of objects');
 		}
 
+		function pluck(values, index) {
+			return values.reduce(function(values, next) {
+				next.values.forEach(function(point) {
+					values.push(point[index]);
+				});
+				return values;
+			}, []);
+		}
+
+		var context = {
+			params: params,
+			dimensions: {},
+			xDomain: getOptimalDomain(pluck(params.data, 0), params.width, params.xAxis.algorithm),
+			yDomain: getOptimalDomain(pluck(params.data, 1), params.height, params.yAxis.algorithm)
+		};
+
 		var d = {
 			margin: 20,
 			titleHeight: params.title ? 40 : 0,
@@ -47,24 +63,16 @@ ChartBuilder.prototype = {
 			legendWidth: params.legend ? 150 : 0
 		};
 
-		function pluck(values, index) {
-			return values.reduce(function(values, next) {
-				next.values.forEach(function(point) {
-					values.push(point[index]);
-				});
-				return values;
-			}, []);
-		}
-
-		var context = {
-			params: params,
-			dimensions: d,
-			xDomain: getOptimalDomain(pluck(params.data, 0), params.width, params.xAxis.algorithm),
-			yDomain: getOptimalDomain(pluck(params.data, 1), params.height, params.yAxis.algorithm)
-		};
-
 		d.chartWidth = context.xDomain.adjustedLength;
 		d.chartHeight = context.yDomain.adjustedLength;
+
+		var angledPixelsPerChar = 1;
+		if (context.xDomain.maxStepLabelWidth > 100) {
+			d.xAxisLabelHeight = angledPixelsPerChar * context.xDomain.maxStepLabelWidth;
+			d.axisLabelAngle = 300; //TODO this should be calculated properly
+		}
+
+		context.dimensions = d;
 
 		context.dimensions.chartOrigin = {
 			x: d.margin + d.yAxisLabelWidth + d.yAxisGutter,
