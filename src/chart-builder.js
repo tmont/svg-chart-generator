@@ -66,9 +66,6 @@ ChartBuilder.prototype = {
 		d.chartWidth = context.xDomain.adjustedLength;
 		d.chartHeight = context.yDomain.adjustedLength;
 
-		console.log(require('util').inspect(context.xDomain, false, null, true));
-		console.log(require('util').inspect(context.yDomain, false, null, true));
-
 		context.dimensions.chartOrigin = {
 			x: d.margin + d.yAxisLabelWidth + d.yAxisGutter,
 			y: d.margin + d.titleHeight + d.chartHeight
