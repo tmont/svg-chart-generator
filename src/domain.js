@@ -29,21 +29,8 @@ function getOptimalDomain(values, length, algorithm) {
 		if (!diffFromOptimal) {
 			return false;
 		}
-		//if ((diffFromOptimal - optimalNumSteps) > Math.sqrt(optimalNumSteps)) {
-			step *= diffFromOptimal;
-		//} else {
-		//	step *= optimalNumSteps;
-		//}
 
-		//only adjust number of steps if it's more than the square root away
-		//the idea is that we don't want to adjust the number of steps away from
-		//the default unless it makes a big difference (e.g. having 10 steps instead of 100)
-
-		//console.log(step, defaultNumSteps, optimalNumSteps, diffFromOptimal);
-		if (!step) {
-			//TODO this is almost certainly a bad idea...
-			return false;
-		}
+		step *= diffFromOptimal;
 
 		var realMax = max;
 		var realMin = min;
