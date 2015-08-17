@@ -23,17 +23,26 @@ module.exports = function(context) {
 		i;
 
 	//x-axis
+	//noinspection JSSuspiciousNameCombination
+	g.append(xml.create('rect', {
+		x: d.chartOrigin.x,
+		y: d.chartOrigin.y,
+		width: d.chartWidth,
+		height: d.xAxisGutter,
+		fill: 'red',
+		'fill-opacity': 0.2
+	}));
 	for (i = 0; i < xDomain.stepValues.length; i++) {
 		stepValue = xDomain.stepValues[i];
 		coord = {
 			x: d.chartOrigin.x + ((stepValue - xDomain.min) * xDomain.pixelsPerUnit),
-			y: d.chartOrigin.y + (d.xAxisGutter * 3 / 4)
+			y: d.chartOrigin.y + 17
 		};
 
 		g.append(xml.create('text', {
 			x: coord.x,
 			y: coord.y,
-			'text-anchor': 'end',
+			'text-anchor': d.axisLabelAngle > 0 ? 'end' : 'middle',
 			transform: 'rotate(' + (d.axisLabelAngle || 0) + ', ' + coord.x + ',' + coord.y + ')'
 		}).append(xDomain.labels[i]));
 

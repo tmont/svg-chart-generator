@@ -110,43 +110,42 @@ function getOptimalDomain(values, length, algorithm) {
 
 	var pixelsPerUnit = length / realNumSteps / result.step;
 
-	var maxLabelWidth = 0,
-		labels = stepValues.map(function(value) {
-			function format(timestamp) {
-				var date = new Date(timestamp);
+	var labels = stepValues.map(function(value) {
+		function format(timestamp) {
+			var date = new Date(timestamp);
 
-				function pad(value) {
-					return value < 10 ? '0' + value : value;
-				}
-
-				var dateStr = [
-					date.getFullYear(),
-					pad(date.getMonth() + 1),
-					pad(date.getDate())
-				].join('-');
-
-				var time = [pad(date.getHours()), pad(date.getMinutes()), pad(date.getSeconds())].join(':');
-
-				if (diff < oneDay) {
-					return time;
-				}
-				if (result.step >= oneDay) {
-					return dateStr;
-				}
-
-				return dateStr + ' ' + time;
+			function pad(value) {
+				return value < 10 ? '0' + value : value;
 			}
 
-			return algorithm === 'date' ? format(value) : value.toString();
-		});
+			var dateStr = [
+				date.getFullYear(),
+				pad(date.getMonth() + 1),
+				pad(date.getDate())
+			].join('-');
 
-	if (algorithm === 'date') {
-		maxLabelWidth = 150;
-	} else {
-		maxLabelWidth = labels.reduce(function(max, next) {
-			return Math.max(max, next.length);
-		}, 0);
-	}
+			var time = [
+				pad(date.getHours()),
+				pad(date.getMinutes()),
+				pad(date.getSeconds())
+			].join(':');
+
+			if (diff < oneDay) {
+				return time;
+			}
+			if (result.step >= oneDay) {
+				return dateStr;
+			}
+
+			return dateStr + ' ' + time;
+		}
+
+		return algorithm === 'date' ? format(value) : value.toString();
+	});
+
+	var maxLabelWidth = labels.reduce(function(max, next) {
+		return Math.max(max, next.length);
+	}, 0);
 
 	return {
 		algorithm: algorithm,

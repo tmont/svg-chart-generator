@@ -1,4 +1,4 @@
-<svg version="1.1" baseProfile="full" width="879.9999999999999" height="605" xmlns="http://www.w3.org/2000/svg">
+<svg version="1.1" baseProfile="full" width="879.9999999999999" height="485" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient id="line-grad-0" x1="0" x2="0" y1="0" y2="1">
       <stop offset="0%" stop-color="#3333CC"/>
@@ -19,82 +19,96 @@
   </filter>
   <line stroke="black" stroke-width="2" x1="110" y1="410" x2="709.9999999999999" y2="410"/>
   <line stroke="black" stroke-width="2" x1="110" y1="410" x2="110" y2="60"/>
-  <text x="409.99999999999994" y="547.5" font-size="16" font-family="Consolas" text-anchor="middle">
+  <text x="409.99999999999994" y="457.5" font-size="16" font-family="Consolas" text-anchor="middle">
     Date
   </text>
   <text x="50" y="235" transform="rotate(270,50,235)" font-size="16" font-family="Consolas" text-anchor="middle">
     Count
   </text>
   <g font-size="14" font-family="Consolas">
-    <text x="110" y="428.75" text-anchor="end" transform="rotate(300, 110,428.75)">
-      23:10:29
+    <rect x="110" y="410" width="599.9999999999999" height="25" fill="red" fill-opacity="0.2"/>
+    <text x="110" y="427" text-anchor="middle" transform="rotate(0, 110,427)">
+      17:05:13
     </text>
-    <text x="195.71428571428572" y="428.75" text-anchor="end" transform="rotate(300, 195.71428571428572,428.75)">
-      00:10:29
+    <text x="195.71428571428572" y="427" text-anchor="middle" transform="rotate(0, 195.71428571428572,427)">
+      18:05:13
     </text>
     <line x1="195.71428571428572" y1="410" x2="195.71428571428572" y2="60" stroke="black" stroke-opacity="0.2" stroke-width="1"/>
-    <text x="281.42857142857144" y="428.75" text-anchor="end" transform="rotate(300, 281.42857142857144,428.75)">
-      01:10:29
+    <text x="281.42857142857144" y="427" text-anchor="middle" transform="rotate(0, 281.42857142857144,427)">
+      19:05:13
     </text>
     <line x1="281.42857142857144" y1="410" x2="281.42857142857144" y2="60" stroke="black" stroke-opacity="0.2" stroke-width="1"/>
-    <text x="367.1428571428571" y="428.75" text-anchor="end" transform="rotate(300, 367.1428571428571,428.75)">
-      02:10:29
+    <text x="367.1428571428571" y="427" text-anchor="middle" transform="rotate(0, 367.1428571428571,427)">
+      20:05:13
     </text>
     <line x1="367.1428571428571" y1="410" x2="367.1428571428571" y2="60" stroke="black" stroke-opacity="0.2" stroke-width="1"/>
-    <text x="452.85714285714283" y="428.75" text-anchor="end" transform="rotate(300, 452.85714285714283,428.75)">
-      03:10:29
+    <text x="452.85714285714283" y="427" text-anchor="middle" transform="rotate(0, 452.85714285714283,427)">
+      21:05:13
     </text>
     <line x1="452.85714285714283" y1="410" x2="452.85714285714283" y2="60" stroke="black" stroke-opacity="0.2" stroke-width="1"/>
-    <text x="538.5714285714284" y="428.75" text-anchor="end" transform="rotate(300, 538.5714285714284,428.75)">
-      04:10:29
+    <text x="538.5714285714284" y="427" text-anchor="middle" transform="rotate(0, 538.5714285714284,427)">
+      22:05:13
     </text>
     <line x1="538.5714285714284" y1="410" x2="538.5714285714284" y2="60" stroke="black" stroke-opacity="0.2" stroke-width="1"/>
-    <text x="624.2857142857142" y="428.75" text-anchor="end" transform="rotate(300, 624.2857142857142,428.75)">
-      05:10:29
+    <text x="624.2857142857142" y="427" text-anchor="middle" transform="rotate(0, 624.2857142857142,427)">
+      23:05:13
     </text>
     <line x1="624.2857142857142" y1="410" x2="624.2857142857142" y2="60" stroke="black" stroke-opacity="0.2" stroke-width="1"/>
-    <text x="709.9999999999999" y="428.75" text-anchor="end" transform="rotate(300, 709.9999999999999,428.75)">
-      06:10:29
+    <text x="709.9999999999999" y="427" text-anchor="middle" transform="rotate(0, 709.9999999999999,427)">
+      00:05:13
     </text>
     <line x1="709.9999999999999" y1="410" x2="709.9999999999999" y2="60" stroke="black" stroke-opacity="0.2" stroke-width="1"/>
     <text x="85" y="410" text-anchor="middle" dy=".3em">
+      0
+    </text>
+    <text x="85" y="375" text-anchor="middle" dy=".3em">
       1
     </text>
-    <text x="85" y="360" text-anchor="middle" dy=".3em">
+    <line x1="110" y1="375" x2="709.9999999999999" y2="375" stroke="black" stroke-opacity="0.2" stroke-width="1"/>
+    <text x="85" y="340" text-anchor="middle" dy=".3em">
       2
     </text>
-    <text x="85" y="310" text-anchor="middle" dy=".3em">
+    <line x1="110" y1="340" x2="709.9999999999999" y2="340" stroke="black" stroke-opacity="0.2" stroke-width="1"/>
+    <text x="85" y="305" text-anchor="middle" dy=".3em">
       3
     </text>
-    <line x1="110" y1="310" x2="709.9999999999999" y2="310" stroke="black" stroke-opacity="0.2" stroke-width="1"/>
-    <text x="85" y="260" text-anchor="middle" dy=".3em">
+    <line x1="110" y1="305" x2="709.9999999999999" y2="305" stroke="black" stroke-opacity="0.2" stroke-width="1"/>
+    <text x="85" y="270" text-anchor="middle" dy=".3em">
       4
     </text>
-    <line x1="110" y1="260" x2="709.9999999999999" y2="260" stroke="black" stroke-opacity="0.2" stroke-width="1"/>
-    <text x="85" y="210" text-anchor="middle" dy=".3em">
+    <line x1="110" y1="270" x2="709.9999999999999" y2="270" stroke="black" stroke-opacity="0.2" stroke-width="1"/>
+    <text x="85" y="235" text-anchor="middle" dy=".3em">
       5
     </text>
-    <line x1="110" y1="210" x2="709.9999999999999" y2="210" stroke="black" stroke-opacity="0.2" stroke-width="1"/>
-    <text x="85" y="160" text-anchor="middle" dy=".3em">
+    <line x1="110" y1="235" x2="709.9999999999999" y2="235" stroke="black" stroke-opacity="0.2" stroke-width="1"/>
+    <text x="85" y="200" text-anchor="middle" dy=".3em">
       6
     </text>
-    <line x1="110" y1="160" x2="709.9999999999999" y2="160" stroke="black" stroke-opacity="0.2" stroke-width="1"/>
-    <text x="85" y="110" text-anchor="middle" dy=".3em">
+    <line x1="110" y1="200" x2="709.9999999999999" y2="200" stroke="black" stroke-opacity="0.2" stroke-width="1"/>
+    <text x="85" y="165" text-anchor="middle" dy=".3em">
       7
     </text>
-    <line x1="110" y1="110" x2="709.9999999999999" y2="110" stroke="black" stroke-opacity="0.2" stroke-width="1"/>
-    <text x="85" y="60" text-anchor="middle" dy=".3em">
+    <line x1="110" y1="165" x2="709.9999999999999" y2="165" stroke="black" stroke-opacity="0.2" stroke-width="1"/>
+    <text x="85" y="130" text-anchor="middle" dy=".3em">
       8
+    </text>
+    <line x1="110" y1="130" x2="709.9999999999999" y2="130" stroke="black" stroke-opacity="0.2" stroke-width="1"/>
+    <text x="85" y="95" text-anchor="middle" dy=".3em">
+      9
+    </text>
+    <line x1="110" y1="95" x2="709.9999999999999" y2="95" stroke="black" stroke-opacity="0.2" stroke-width="1"/>
+    <text x="85" y="60" text-anchor="middle" dy=".3em">
+      10
     </text>
     <line x1="110" y1="60" x2="709.9999999999999" y2="60" stroke="black" stroke-opacity="0.2" stroke-width="1"/>
   </g>
   <text x="409.99999999999994" y="50" font-size="24" font-family="Consolas" text-anchor="middle">
     Line Graph Test
   </text>
-  <path d="M110,160 L195.71428571428572,60 L281.42857142857144,410 L367.14285714285717,310 L452.85714285714283,160 L538.5714285714287,60 L624.2857142857143,360 L710,260" stroke="#3333CC" stroke-width="2" fill="none" filter="url(#line-drop-shadow)"/>
-  <polygon points="110,160 195.71428571428572,60 281.42857142857144,410 367.14285714285717,310 452.85714285714283,160 538.5714285714287,60 624.2857142857143,360 710,260 710,410 110,410" stroke-width="0" fill="url(#line-grad-0)" fill-opacity="0.4"/>
-  <path d="M110,60 L195.71428571428572,110 L281.42857142857144,360 L367.14285714285717,110 L452.85714285714283,260 L538.5714285714287,260 L624.2857142857143,410 L710,210" stroke="#CC33CC" stroke-width="2" fill="none" filter="url(#line-drop-shadow)"/>
-  <polygon points="110,60 195.71428571428572,110 281.42857142857144,360 367.14285714285717,110 452.85714285714283,260 538.5714285714287,260 624.2857142857143,410 710,210 710,410 110,410" stroke-width="0" fill="url(#line-grad-1)" fill-opacity="0.4"/>
+  <path d="M110,60 L195.71428571428572,130 L281.42857142857144,410 L367.14285714285717,305 L452.85714285714283,200 L538.5714285714287,235 L624.2857142857143,410 L710,305" stroke="#3333CC" stroke-width="2" fill="none" filter="url(#line-drop-shadow)"/>
+  <polygon points="110,60 195.71428571428572,130 281.42857142857144,410 367.14285714285717,305 452.85714285714283,200 538.5714285714287,235 624.2857142857143,410 710,305 710,410 110,410" stroke-width="0" fill="url(#line-grad-0)" fill-opacity="0.4"/>
+  <path d="M110,130 L195.71428571428572,165.00000000000003 L281.42857142857144,130 L367.14285714285717,235 L452.85714285714283,305 L538.5714285714287,270 L624.2857142857143,60 L710,270" stroke="#CC33CC" stroke-width="2" fill="none" filter="url(#line-drop-shadow)"/>
+  <polygon points="110,130 195.71428571428572,165.00000000000003 281.42857142857144,130 367.14285714285717,235 452.85714285714283,305 538.5714285714287,270 624.2857142857143,60 710,270 710,410 110,410" stroke-width="0" fill="url(#line-grad-1)" fill-opacity="0.4"/>
   <rect x="719.9999999999999" y="70" rx="2" ry="2" width="20" height="20" fill="url(#line-grad-0)"/>
   <text x="749.9999999999999" y="85" font-family="Consolas" font-size="14">
     Windows

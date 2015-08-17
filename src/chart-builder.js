@@ -66,10 +66,13 @@ ChartBuilder.prototype = {
 		d.chartWidth = context.xDomain.adjustedLength;
 		d.chartHeight = context.yDomain.adjustedLength;
 
-		var angledPixelsPerChar = 1;
-		if (context.xDomain.maxStepLabelWidth > 100) {
-			d.xAxisLabelHeight = angledPixelsPerChar * context.xDomain.maxStepLabelWidth;
-			d.axisLabelAngle = 300; //TODO this should be calculated properly
+		var angledPixelsPerChar = 8;
+		if (context.xDomain.maxStepLabelWidth > 12) {
+			d.axisLabelAngle = 315;
+			var hyp = angledPixelsPerChar * context.xDomain.maxStepLabelWidth,
+				base = context.xDomain.step * context.xDomain.pixelsPerUnit;
+			//45 degree angle, hypotenuse = textLength, base = context.xDomain.step * context.xDomain.pixelsPerUnit
+			d.xAxisGutter = Math.sqrt(hyp * hyp - base * base);
 		}
 
 		context.dimensions = d;
