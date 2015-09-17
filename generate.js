@@ -74,6 +74,7 @@ var options = {
 	legend: true
 };
 
+
 var xValues = [];
 var date = new Date();
 for (var i = 0; i < 8; i++) {
@@ -97,6 +98,7 @@ options.data = [{
 			return [ x, Math.round(Math.random() * 10) ];
 		})
 	}];
+console.log(require('util').inspect(options, false, null, true));
 
 var svgData = new ChartBuilder().build(options);
 fs.writeFileSync('./test.svg', svgData);

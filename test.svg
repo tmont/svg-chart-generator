@@ -28,75 +28,70 @@
   <g font-size="14" font-family="Consolas">
     <rect x="110" y="410" width="599.9999999999999" height="25" fill="red" fill-opacity="0.2"/>
     <text x="110" y="427" text-anchor="middle" transform="rotate(0, 110,427)">
-      17:05:13
+      22:33:20
     </text>
     <text x="195.71428571428572" y="427" text-anchor="middle" transform="rotate(0, 195.71428571428572,427)">
-      18:05:13
+      23:33:20
     </text>
     <line x1="195.71428571428572" y1="410" x2="195.71428571428572" y2="60" stroke="black" stroke-opacity="0.2" stroke-width="1"/>
     <text x="281.42857142857144" y="427" text-anchor="middle" transform="rotate(0, 281.42857142857144,427)">
-      19:05:13
+      00:33:20
     </text>
     <line x1="281.42857142857144" y1="410" x2="281.42857142857144" y2="60" stroke="black" stroke-opacity="0.2" stroke-width="1"/>
     <text x="367.1428571428571" y="427" text-anchor="middle" transform="rotate(0, 367.1428571428571,427)">
-      20:05:13
+      01:33:20
     </text>
     <line x1="367.1428571428571" y1="410" x2="367.1428571428571" y2="60" stroke="black" stroke-opacity="0.2" stroke-width="1"/>
     <text x="452.85714285714283" y="427" text-anchor="middle" transform="rotate(0, 452.85714285714283,427)">
-      21:05:13
+      02:33:20
     </text>
     <line x1="452.85714285714283" y1="410" x2="452.85714285714283" y2="60" stroke="black" stroke-opacity="0.2" stroke-width="1"/>
     <text x="538.5714285714284" y="427" text-anchor="middle" transform="rotate(0, 538.5714285714284,427)">
-      22:05:13
+      03:33:20
     </text>
     <line x1="538.5714285714284" y1="410" x2="538.5714285714284" y2="60" stroke="black" stroke-opacity="0.2" stroke-width="1"/>
     <text x="624.2857142857142" y="427" text-anchor="middle" transform="rotate(0, 624.2857142857142,427)">
-      23:05:13
+      04:33:20
     </text>
     <line x1="624.2857142857142" y1="410" x2="624.2857142857142" y2="60" stroke="black" stroke-opacity="0.2" stroke-width="1"/>
     <text x="709.9999999999999" y="427" text-anchor="middle" transform="rotate(0, 709.9999999999999,427)">
-      00:05:13
+      05:33:20
     </text>
     <line x1="709.9999999999999" y1="410" x2="709.9999999999999" y2="60" stroke="black" stroke-opacity="0.2" stroke-width="1"/>
     <text x="85" y="410" text-anchor="middle" dy=".3em">
-      0
-    </text>
-    <text x="85" y="375" text-anchor="middle" dy=".3em">
       1
     </text>
-    <line x1="110" y1="375" x2="709.9999999999999" y2="375" stroke="black" stroke-opacity="0.2" stroke-width="1"/>
-    <text x="85" y="340" text-anchor="middle" dy=".3em">
+    <text x="85" y="371.1111111111111" text-anchor="middle" dy=".3em">
       2
     </text>
-    <line x1="110" y1="340" x2="709.9999999999999" y2="340" stroke="black" stroke-opacity="0.2" stroke-width="1"/>
-    <text x="85" y="305" text-anchor="middle" dy=".3em">
+    <text x="85" y="332.22222222222223" text-anchor="middle" dy=".3em">
       3
     </text>
-    <line x1="110" y1="305" x2="709.9999999999999" y2="305" stroke="black" stroke-opacity="0.2" stroke-width="1"/>
-    <text x="85" y="270" text-anchor="middle" dy=".3em">
+    <line x1="110" y1="332.22222222222223" x2="709.9999999999999" y2="332.22222222222223" stroke="black" stroke-opacity="0.2" stroke-width="1"/>
+    <text x="85" y="293.33333333333337" text-anchor="middle" dy=".3em">
       4
     </text>
-    <line x1="110" y1="270" x2="709.9999999999999" y2="270" stroke="black" stroke-opacity="0.2" stroke-width="1"/>
-    <text x="85" y="235" text-anchor="middle" dy=".3em">
+    <line x1="110" y1="293.33333333333337" x2="709.9999999999999" y2="293.33333333333337" stroke="black" stroke-opacity="0.2" stroke-width="1"/>
+    <text x="85" y="254.44444444444446" text-anchor="middle" dy=".3em">
       5
     </text>
-    <line x1="110" y1="235" x2="709.9999999999999" y2="235" stroke="black" stroke-opacity="0.2" stroke-width="1"/>
-    <text x="85" y="200" text-anchor="middle" dy=".3em">
+    <line x1="110" y1="254.44444444444446" x2="709.9999999999999" y2="254.44444444444446" stroke="black" stroke-opacity="0.2" stroke-width="1"/>
+    <text x="85" y="215.55555555555557" text-anchor="middle" dy=".3em">
       6
     </text>
-    <line x1="110" y1="200" x2="709.9999999999999" y2="200" stroke="black" stroke-opacity="0.2" stroke-width="1"/>
-    <text x="85" y="165" text-anchor="middle" dy=".3em">
+    <line x1="110" y1="215.55555555555557" x2="709.9999999999999" y2="215.55555555555557" stroke="black" stroke-opacity="0.2" stroke-width="1"/>
+    <text x="85" y="176.66666666666669" text-anchor="middle" dy=".3em">
       7
     </text>
-    <line x1="110" y1="165" x2="709.9999999999999" y2="165" stroke="black" stroke-opacity="0.2" stroke-width="1"/>
-    <text x="85" y="130" text-anchor="middle" dy=".3em">
+    <line x1="110" y1="176.66666666666669" x2="709.9999999999999" y2="176.66666666666669" stroke="black" stroke-opacity="0.2" stroke-width="1"/>
+    <text x="85" y="137.77777777777783" text-anchor="middle" dy=".3em">
       8
     </text>
-    <line x1="110" y1="130" x2="709.9999999999999" y2="130" stroke="black" stroke-opacity="0.2" stroke-width="1"/>
-    <text x="85" y="95" text-anchor="middle" dy=".3em">
+    <line x1="110" y1="137.77777777777783" x2="709.9999999999999" y2="137.77777777777783" stroke="black" stroke-opacity="0.2" stroke-width="1"/>
+    <text x="85" y="98.88888888888891" text-anchor="middle" dy=".3em">
       9
     </text>
-    <line x1="110" y1="95" x2="709.9999999999999" y2="95" stroke="black" stroke-opacity="0.2" stroke-width="1"/>
+    <line x1="110" y1="98.88888888888891" x2="709.9999999999999" y2="98.88888888888891" stroke="black" stroke-opacity="0.2" stroke-width="1"/>
     <text x="85" y="60" text-anchor="middle" dy=".3em">
       10
     </text>
@@ -105,10 +100,10 @@
   <text x="409.99999999999994" y="50" font-size="24" font-family="Consolas" text-anchor="middle">
     Line Graph Test
   </text>
-  <path d="M110,60 L195.71428571428572,130 L281.42857142857144,410 L367.14285714285717,305 L452.85714285714283,200 L538.5714285714287,235 L624.2857142857143,410 L710,305" stroke="#3333CC" stroke-width="2" fill="none" filter="url(#line-drop-shadow)"/>
-  <polygon points="110,60 195.71428571428572,130 281.42857142857144,410 367.14285714285717,305 452.85714285714283,200 538.5714285714287,235 624.2857142857143,410 710,305 710,410 110,410" stroke-width="0" fill="url(#line-grad-0)" fill-opacity="0.4"/>
-  <path d="M110,130 L195.71428571428572,165.00000000000003 L281.42857142857144,130 L367.14285714285717,235 L452.85714285714283,305 L538.5714285714287,270 L624.2857142857143,60 L710,270" stroke="#CC33CC" stroke-width="2" fill="none" filter="url(#line-drop-shadow)"/>
-  <polygon points="110,130 195.71428571428572,165.00000000000003 281.42857142857144,130 367.14285714285717,235 452.85714285714283,305 538.5714285714287,270 624.2857142857143,60 710,270 710,410 110,410" stroke-width="0" fill="url(#line-grad-1)" fill-opacity="0.4"/>
+  <path d="M110,410 L195.71428571428572,254.44444444444446 L281.42857142857144,371.1111111111111 L367.14285714285717,60 L452.85714285714283,215.55555555555554 L538.5714285714287,215.55555555555554 L624.2857142857143,254.44444444444446 L710,60" stroke="#3333CC" stroke-width="2" fill="none" filter="url(#line-drop-shadow)"/>
+  <polygon points="110,410 195.71428571428572,254.44444444444446 281.42857142857144,371.1111111111111 367.14285714285717,60 452.85714285714283,215.55555555555554 538.5714285714287,215.55555555555554 624.2857142857143,254.44444444444446 710,60 710,410 110,410" stroke-width="0" fill="url(#line-grad-0)" fill-opacity="0.4"/>
+  <path d="M110,371.1111111111111 L195.71428571428572,98.88888888888891 L281.42857142857144,98.88888888888891 L367.14285714285717,137.77777777777777 L452.85714285714283,215.55555555555554 L538.5714285714287,215.55555555555554 L624.2857142857143,371.1111111111111 L710,215.55555555555554" stroke="#CC33CC" stroke-width="2" fill="none" filter="url(#line-drop-shadow)"/>
+  <polygon points="110,371.1111111111111 195.71428571428572,98.88888888888891 281.42857142857144,98.88888888888891 367.14285714285717,137.77777777777777 452.85714285714283,215.55555555555554 538.5714285714287,215.55555555555554 624.2857142857143,371.1111111111111 710,215.55555555555554 710,410 110,410" stroke-width="0" fill="url(#line-grad-1)" fill-opacity="0.4"/>
   <rect x="719.9999999999999" y="70" rx="2" ry="2" width="20" height="20" fill="url(#line-grad-0)"/>
   <text x="749.9999999999999" y="85" font-family="Consolas" font-size="14">
     Windows
